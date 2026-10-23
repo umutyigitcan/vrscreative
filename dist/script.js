@@ -4,7 +4,9 @@ const menuToggle = document.querySelector('.menu-toggle');
 const mainNav = document.querySelector('.main-nav');
 const backToTop = document.querySelector('.back-to-top');
 
-window.addEventListener('load', () => body.classList.add('is-ready'));
+window.addEventListener('load', () => {
+  window.setTimeout(() => body.classList.add('is-ready'), 1500);
+});
 
 const syncHeader = () => {
   const isScrolled = window.scrollY > 24;
@@ -207,7 +209,7 @@ contactForm?.addEventListener('submit', (event) => {
   event.preventDefault();
   const data = new FormData(contactForm);
   const message = [
-    'Merhaba VRS Creative, web sitesi üzerinden teklif almak istiyorum.',
+    'Merhaba, projem için teklif almak istiyorum.',
     `Ad Soyad: ${data.get('name') || '-'}`,
     `E-posta: ${data.get('email') || '-'}`,
     `Konu: ${data.get('subject') || '-'}`,

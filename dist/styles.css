@@ -2836,6 +2836,20 @@ body.is-ready .page-loader {
   text-transform: uppercase;
 }
 
+.contact-form label > span {
+  display: flex;
+  align-items: baseline;
+  min-height: 17px;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.contact-form label > span small {
+  color: inherit;
+  font: inherit;
+  letter-spacing: 0.08em;
+}
+
 .contact-form label:last-of-type {
   grid-column: 1 / 3;
 }
@@ -2933,7 +2947,7 @@ body.is-ready .page-loader {
 .intro-visual img {
   object-fit: contain;
   object-position: center;
-  background: #111;
+  background: #fff;
 }
 
 .intro-copy p,

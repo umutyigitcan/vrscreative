@@ -9,11 +9,11 @@ const header = (active) => `
     <div class="header-top shell">
       <a class="brand" href="/" aria-label="VRS Creative ana sayfa"><img src="/assets/vrs-logo.png" alt="VRS Creative" /></a>
       <div class="header-contact">
-        <a href="tel:+905476060616"><small>TELEFON</small><strong>0547 606 06 16</strong></a>
+        <a href="tel:+905476060616"><small>TELEFON</small><strong>+90 547 606 06 16</strong></a>
         <a href="mailto:info@vrscreative.com"><small>E-POSTA</small><strong>info@vrscreative.com</strong></a>
       </div>
       <div class="header-actions">
-        <a class="header-cta" href="https://wa.me/905476060616?text=Merhaba%2C%20VRS%20Creative%20i%C3%A7in%20teklif%20almak%20istiyorum." target="_blank" rel="noreferrer">WHATSAPP’TAN TEKLİF AL <span>↗</span></a>
+        <a class="header-cta" href="https://wa.me/905476060616?text=Merhaba%2C%20projem%20i%C3%A7in%20teklif%20almak%20istiyorum." target="_blank" rel="noreferrer">WHATSAPP’TAN TEKLİF AL <span>↗</span></a>
         <button class="menu-toggle" type="button" aria-label="Menüyü aç veya kapat" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span><em>MENÜ</em></button>
       </div>
     </div>
@@ -36,12 +36,12 @@ const footer = `
       <div class="footer-brand"><img src="/assets/vrs-logo.png" alt="VRS Creative" /><p>Tabela, baskı, giydirme ve kurumsal uygulama çözümleri.</p></div>
       <div><h3>Kurumsal</h3><a href="/hakkimizda/">Hakkımızda</a><a href="/sss/">Sıkça Sorulan Sorular</a><a href="/iletisim/">İletişim</a></div>
       <div><h3>Hizmetler</h3><a href="/tabela-hizmetleri/">Tabela Sistemleri</a><a href="/baski-giydirme/">Baskı &amp; Giydirme</a><a href="/#hizmetler">Tüm Hizmetler</a></div>
-      <div><h3>İletişim</h3><a href="tel:+905476060616">0547 606 06 16</a><a href="mailto:info@vrscreative.com">info@vrscreative.com</a><p>Küçükbakkalköy, Mavideniz Sk. No:2<br />34750 Ataşehir / İstanbul</p><p class="working-hours">Pazartesi–Cuma: 09.00–18.00<br />Cumartesi: 10.00–13.00<br />Pazar: Kapalı</p></div>
+      <div><h3>İletişim</h3><a href="tel:+905476060616">+90 547 606 06 16</a><a href="mailto:info@vrscreative.com">info@vrscreative.com</a><p>Küçükbakkalköy, Mavideniz Sk No:2 D:I<br />34750 Ataşehir/İstanbul</p><p class="working-hours">Pazartesi–Cuma: 09.00–18.00<br />Cumartesi: 10.00–13.00<br />Pazar: Kapalı</p></div>
     </div>
     <div class="shell footer-bottom"><span>© 2026 VRS Creative</span><span>Tasarım • Üretim • Uygulama</span></div>
   </footer>
   <button class="back-top" type="button" aria-label="Sayfanın başına dön">↑</button>
-  <script src="/script.js?v=20261023-1"></script>`;
+  <script src="/script.js?v=20261024-1"></script>`;
 
 const hero = (title, subtitle, image, parent = "Başlangıç") => `
   <section class="page-hero" style="--page-image: url('/assets/${image}')">
@@ -55,10 +55,10 @@ const layout = ({ title, description, active, body, scripts = "" }) => `<!doctyp
   <meta name="description" content="${description}" /><title>${title} | VRS Creative</title>
   <link rel="canonical" href="https://vrscreative.com/${title === "Hakkımızda" ? "hakkimizda/" : title === "Sıkça Sorulan Sorular" ? "sss/" : title === "Tabela Sistemleri" ? "tabela-hizmetleri/" : title === "Baskı & Giydirme" ? "baski-giydirme/" : "iletisim/"}" />
   <meta property="og:type" content="website" /><meta property="og:locale" content="tr_TR" /><meta property="og:site_name" content="VRS Creative" /><meta property="og:title" content="${title} | VRS Creative" /><meta property="og:description" content="${description}" /><meta property="og:image" content="https://vrscreative.com/assets/kutu-harf.jpg" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"VRS Creative","url":"https://vrscreative.com/","telephone":"+905476060616","email":"info@vrscreative.com","address":{"@type":"PostalAddress","streetAddress":"Küçükbakkalköy, Mavideniz Sk. No:2","postalCode":"34750","addressLocality":"Ataşehir","addressRegion":"İstanbul","addressCountry":"TR"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"13:00"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"VRS Creative","url":"https://vrscreative.com/","telephone":"+905476060616","email":"info@vrscreative.com","address":{"@type":"PostalAddress","streetAddress":"Küçükbakkalköy, Mavideniz Sk No:2 D:I","postalCode":"34750","addressLocality":"Ataşehir","addressRegion":"İstanbul","addressCountry":"TR"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"13:00"}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=20261023-1" />
+  <link rel="stylesheet" href="/styles.css?v=20261024-1" />
 </head><body class="inner-page" data-nav="${active}">${header(active)}<main>${body}</main>${footer}${scripts}</body></html>`;
 
 const pages = {
@@ -136,8 +136,8 @@ const pages = {
     description: "VRS Creative iletişim, konum ve proje talep formu.",
     active: "contact",
     body: `${hero("İletişim", "Projenizi birlikte netleştirelim.", "kutu-harf.jpg")}
-      <section class="contact-page"><div class="map-large"><iframe title="VRS Creative konumu" src="https://www.google.com/maps?q=40.9799827,29.1123926&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div class="contact-info reveal"><div class="section-number light"><b>01</b><span></span><em>BİZE ULAŞIN</em></div><h2>Bizi ziyaret edin.</h2><address>Küçükbakkalköy, Mavideniz Sk. No:2<br />34750 Ataşehir / İstanbul</address><a href="tel:+905476060616">0547 606 06 16</a><a href="mailto:info@vrscreative.com">info@vrscreative.com</a><p class="working-hours light-hours"><strong>Çalışma saatleri</strong><br />Pazartesi–Cuma: 09.00–18.00<br />Cumartesi: 10.00–13.00<br />Pazar: Kapalı</p><a href="https://instagram.com/vrscreativeco/" target="_blank" rel="noreferrer">@vrscreativeco</a></div></section>
-      <section class="inner-section form-section"><div class="shell form-layout"><div class="form-heading reveal"><div class="section-number"><b>02</b><span></span><em>PROJE FORMU</em></div><h2>Kısa bir mesaj<br />yeterli.</h2><p>Form, bilgilerinizi WhatsApp’ta hazır bir mesaj olarak açar; mesajı gönderme kararı size aittir.</p></div><form class="contact-form reveal" data-contact-form><label>Adınız<input name="name" required autocomplete="name" /></label><label>E-posta adresiniz <small>(isteğe bağlı)</small><input name="email" type="email" autocomplete="email" /></label><label>Konu<select name="subject"><option>Tabela Sistemleri</option><option>Baskı &amp; Giydirme</option><option>Kurumsal Uygulama</option><option>Diğer</option></select></label><label>Mesajınız<textarea name="message" rows="5" required></textarea></label><p class="form-note">Bu form doğrudan mesaj göndermez; WhatsApp’ta mesaj taslağı hazırlar.</p><button class="outline-button dark" type="submit">WHATSAPP’TA HAZIRLA <span>→</span></button></form></div></section>`
+      <section class="contact-page"><div class="map-large"><iframe title="VRS Creative konumu" src="https://www.google.com/maps?q=40.9799867,29.1098177&z=17&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div class="contact-info reveal"><div class="section-number light"><b>01</b><span></span><em>BİZE ULAŞIN</em></div><h2>Bizi ziyaret edin.</h2><address>Küçükbakkalköy, Mavideniz Sk No:2 D:I<br />34750 Ataşehir/İstanbul</address><a href="tel:+905476060616">+90 547 606 06 16</a><a href="mailto:info@vrscreative.com">info@vrscreative.com</a><p class="working-hours light-hours"><strong>Çalışma saatleri</strong><br />Pazartesi–Cuma: 09.00–18.00<br />Cumartesi: 10.00–13.00<br />Pazar: Kapalı</p><a href="https://www.instagram.com/vrscrea/" target="_blank" rel="noreferrer">@vrscrea</a></div></section>
+      <section class="inner-section form-section"><div class="shell form-layout"><div class="form-heading reveal"><div class="section-number"><b>02</b><span></span><em>PROJE FORMU</em></div><h2>Kısa bir mesaj<br />yeterli.</h2><p>Form, bilgilerinizi WhatsApp’ta hazır bir mesaj olarak açar; mesajı gönderme kararı size aittir.</p></div><form class="contact-form reveal" data-contact-form><label><span>Adınız</span><input name="name" required autocomplete="name" /></label><label><span>E-posta adresiniz <small>(isteğe bağlı)</small></span><input name="email" type="email" autocomplete="email" /></label><label><span>Konu</span><select name="subject"><option>Tabela Sistemleri</option><option>Baskı &amp; Giydirme</option><option>Kurumsal Uygulama</option><option>Diğer</option></select></label><label><span>Mesajınız</span><textarea name="message" rows="5" required></textarea></label><p class="form-note">Bu form doğrudan mesaj göndermez; WhatsApp’ta mesaj taslağı hazırlar.</p><button class="outline-button dark" type="submit">WHATSAPP’TA HAZIRLA <span>→</span></button></form></div></section>`
   }),
 };
 
