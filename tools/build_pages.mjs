@@ -13,24 +13,19 @@ const header = (active) => `
         <a href="mailto:info@vrscreative.com"><small>E-POSTA</small><strong>info@vrscreative.com</strong></a>
       </div>
       <div class="header-actions">
-        <span class="language">TR</span>
+        <a class="header-cta" href="https://wa.me/905476060616?text=Merhaba%2C%20VRS%20Creative%20i%C3%A7in%20teklif%20almak%20istiyorum." target="_blank" rel="noreferrer">WHATSAPP’TAN TEKLİF AL <span>↗</span></a>
         <button class="menu-toggle" type="button" aria-label="Menüyü aç veya kapat" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span><em>MENÜ</em></button>
       </div>
     </div>
     <div class="header-line"></div>
     <nav class="main-nav shell" id="main-nav" aria-label="Ana menü">
       <a href="/" class="${active === "home" ? "is-active" : ""}">ANASAYFA</a>
-      <div class="nav-item has-dropdown ${active === "corporate" ? "is-active" : ""}">
-        <button class="nav-parent" type="button" aria-expanded="false">KURUMSAL <span>⌄</span></button>
-        <div class="submenu"><a href="/hakkimizda/">Hakkımızda</a><a href="/sss/">Sıkça Sorulan Sorular</a></div>
-      </div>
+      <a href="/hakkimizda/" class="${active === "corporate" ? "is-active" : ""}">HAKKIMIZDA</a>
       <div class="nav-item has-dropdown ${active === "services" ? "is-active" : ""}">
-        <button class="nav-parent" type="button" aria-expanded="false">HİZMETLER <span>⌄</span></button>
+        <button class="nav-parent" type="button" aria-expanded="false" data-services-link>HİZMETLER <span>⌄</span></button>
         <div class="submenu"><a href="/tabela-hizmetleri/">Tabela Sistemleri</a><a href="/baski-giydirme/">Baskı &amp; Giydirme</a></div>
       </div>
-      <a href="/sertifikalar/" class="${active === "certificates" ? "is-active" : ""}">SERTİFİKALAR</a>
-      <a href="/makine-parkuru/" class="${active === "machines" ? "is-active" : ""}">MAKİNE PARKURU</a>
-      <a href="/katalog/" class="${active === "catalog" ? "is-active" : ""}">KATALOĞUMUZ</a>
+      <a href="/sss/" class="${active === "faq" ? "is-active" : ""}">SIKÇA SORULAN SORULAR</a>
       <a href="/iletisim/" class="${active === "contact" ? "is-active" : ""}">İLETİŞİM</a>
     </nav>
   </header>`;
@@ -39,38 +34,41 @@ const footer = `
   <footer class="site-footer">
     <div class="shell footer-grid">
       <div class="footer-brand"><img src="/assets/vrs-logo.png" alt="VRS Creative" /><p>Tabela, baskı, giydirme ve kurumsal uygulama çözümleri.</p></div>
-      <div><h3>Kurumsal</h3><a href="/hakkimizda/">Hakkımızda</a><a href="/sss/">Sıkça Sorulan Sorular</a><a href="/sertifikalar/">Sertifikalar</a></div>
-      <div><h3>Hizmetler</h3><a href="/tabela-hizmetleri/">Tabela Sistemleri</a><a href="/baski-giydirme/">Baskı &amp; Giydirme</a><a href="/katalog/">Katalog</a></div>
-      <div><h3>İletişim</h3><a href="tel:+905476060616">0547 606 06 16</a><a href="mailto:info@vrscreative.com">info@vrscreative.com</a><p>Küçükbakkalköy, Mavideniz Sk. No:2<br />34750 Ataşehir / İstanbul</p></div>
+      <div><h3>Kurumsal</h3><a href="/hakkimizda/">Hakkımızda</a><a href="/sss/">Sıkça Sorulan Sorular</a><a href="/iletisim/">İletişim</a></div>
+      <div><h3>Hizmetler</h3><a href="/tabela-hizmetleri/">Tabela Sistemleri</a><a href="/baski-giydirme/">Baskı &amp; Giydirme</a><a href="/#hizmetler">Tüm Hizmetler</a></div>
+      <div><h3>İletişim</h3><a href="tel:+905476060616">0547 606 06 16</a><a href="mailto:info@vrscreative.com">info@vrscreative.com</a><p>Küçükbakkalköy, Mavideniz Sk. No:2<br />34750 Ataşehir / İstanbul</p><p class="working-hours">Pazartesi–Cuma: 09.00–18.00<br />Cumartesi: 10.00–13.00<br />Pazar: Kapalı</p></div>
     </div>
     <div class="shell footer-bottom"><span>© 2026 VRS Creative</span><span>Tasarım • Üretim • Uygulama</span></div>
   </footer>
   <button class="back-top" type="button" aria-label="Sayfanın başına dön">↑</button>
-  <script src="/script.js?v=20261017-3"></script>`;
+  <script src="/script.js?v=20261023-1"></script>`;
 
 const hero = (title, subtitle, image, parent = "Başlangıç") => `
   <section class="page-hero" style="--page-image: url('/assets/${image}')">
     <div class="page-hero-overlay"></div>
-    <div class="shell page-hero-copy"><p>VRS CREATIVE</p><h1>${title}</h1><span>${subtitle}</span><nav aria-label="Sayfa yolu"><a href="/">${parent}</a><i>»</i><b>${title}</b></nav></div>
+    <div class="shell page-hero-copy"><p>VRS CREATIVE</p><h1>${title}</h1><span>${subtitle}</span><nav aria-label="Sayfa yolu"><a href="${parent === "Hizmetler" ? "/#hizmetler" : "/"}">${parent}</a><i>»</i><b>${title}</b></nav></div>
   </section>`;
 
 const layout = ({ title, description, active, body, scripts = "" }) => `<!doctype html>
 <html lang="tr"><head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="theme-color" content="#26282b" />
   <meta name="description" content="${description}" /><title>${title} | VRS Creative</title>
+  <link rel="canonical" href="https://vrscreative.com/${title === "Hakkımızda" ? "hakkimizda/" : title === "Sıkça Sorulan Sorular" ? "sss/" : title === "Tabela Sistemleri" ? "tabela-hizmetleri/" : title === "Baskı & Giydirme" ? "baski-giydirme/" : "iletisim/"}" />
+  <meta property="og:type" content="website" /><meta property="og:locale" content="tr_TR" /><meta property="og:site_name" content="VRS Creative" /><meta property="og:title" content="${title} | VRS Creative" /><meta property="og:description" content="${description}" /><meta property="og:image" content="https://vrscreative.com/assets/kutu-harf.jpg" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"VRS Creative","url":"https://vrscreative.com/","telephone":"+905476060616","email":"info@vrscreative.com","address":{"@type":"PostalAddress","streetAddress":"Küçükbakkalköy, Mavideniz Sk. No:2","postalCode":"34750","addressLocality":"Ataşehir","addressRegion":"İstanbul","addressCountry":"TR"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"13:00"}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css?v=20261017-3" />
+  <link rel="stylesheet" href="/styles.css?v=20261023-1" />
 </head><body class="inner-page" data-nav="${active}">${header(active)}<main>${body}</main>${footer}${scripts}</body></html>`;
 
 const pages = {
   "hakkimizda": layout({
     title: "Hakkımızda",
     description: "VRS Creative tasarım, tabela, baskı ve uygulama yaklaşımı.",
-    active: "corporate",
+    active: "faq",
     body: `${hero("Hakkımızda", "Tasarım, üretim ve uygulama aynı çizgide.", "kutu-harf.jpg")}
       <section class="inner-section"><div class="shell about-intro">
-        <div class="about-copy reveal"><div class="section-number"><b>01</b><span></span><em>VRS CREATIVE</em></div><h2>Fikirden sahaya<br />tek bir ekip.</h2><p class="inner-lead">VRS Creative, markaların fiziksel dünyadaki görünürlüğünü tabela, baskı ve yüzey uygulamalarıyla güçlendiren bir tasarım ve üretim markasıdır.</p><p>Projeyi keşif ve ölçülendirmeden başlayarak tasarım, üretim ve montaj adımlarıyla tek akışta ele alırız. Malzeme kararlarını görünürlük, dayanım ve marka kimliğiyle birlikte değerlendiririz.</p></div>
+        <div class="about-copy reveal"><div class="section-number"><b>01</b><span></span><em>VRS CREATIVE</em></div><h2>Fikirden sahaya<br />tek bir ekip.</h2><p class="inner-lead">VRS Creative, markaların fiziksel dünyadaki görünürlüğünü tabela, baskı ve yüzey uygulamalarıyla güçlendiren bir tasarım ve uygulama markasıdır.</p><p>Tasarım, üretim ve uygulama süreçlerini tek noktadan yönetiyoruz. Projeyi keşif ve ölçülendirmeden başlayarak malzeme seçimi, üretim koordinasyonu ve montaj adımlarıyla aynı akışta ele alırız.</p></div>
         <figure class="about-photo reveal"><img src="/assets/lightbox.jpg" alt="VRS Creative lightbox tabela uygulaması" /><figcaption>ATAŞEHİR / İSTANBUL</figcaption></figure>
       </div></section>
       <section class="value-section"><div class="shell"><div class="value-grid">
@@ -106,12 +104,12 @@ const pages = {
     body: `${hero("Tabela Sistemleri", "Gündüz net, gece güçlü uygulamalar.", "totem-tabela.jpg", "Hizmetler")}
       <section class="inner-section service-detail"><div class="shell"><div class="inner-heading reveal"><div class="section-number"><b>01</b><span></span><em>TABELA HİZMETLERİ</em></div><h2>Mekâna ve markaya<br />özel sistemler.</h2><p>Her tabela türünü görüş mesafesi, cephe oranı, ışık ihtiyacı ve montaj koşullarına göre projelendiriyoruz.</p></div>
         <div class="detail-grid">
-          <article class="detail-card reveal"><img src="/assets/kutu-harf.jpg" alt="Kutu harf tabela" /><span>01</span><h3>Kutu Harf Tabela</h3><p>Pleksi, alüminyum ve paslanmaz yüzey seçenekleriyle ışıklı veya ışıksız üretim.</p></article>
-          <article class="detail-card reveal"><img src="/assets/lightbox.jpg" alt="Lightbox tabela" /><span>02</span><h3>Lightbox Sistemleri</h3><p>Tek veya çift taraflı, homojen aydınlatmalı kutu tabela çözümleri.</p></article>
-          <article class="detail-card reveal"><img src="/assets/totem-tabela.jpg" alt="Totem tabela" /><span>03</span><h3>Totem Tabela</h3><p>Yol, otopark ve bina girişleri için uzaktan algılanan yönlendirme sistemleri.</p></article>
-          <article class="detail-card reveal"><img src="/assets/cephe-giydirme.jpg" alt="Cephe tabelası" /><span>04</span><h3>Cephe Tabelaları</h3><p>Mimari yüzeye uyumlu, dayanıklı ve yüksek görünürlüklü uygulamalar.</p></article>
-          <article class="detail-card reveal"><img src="/assets/kutu-harf.jpg" alt="Neon LED tabela" /><span>05</span><h3>Neon LED</h3><p>İç mekân, vitrin ve sosyal alanlar için hafif ve canlı ışık çözümleri.</p></article>
-          <article class="detail-card reveal"><img src="/assets/totem-tabela.jpg" alt="Yönlendirme tabelaları" /><span>06</span><h3>Yönlendirme</h3><p>Kurumsal iç ve dış mekân bilgi, kat ve yönlendirme sistemleri.</p></article>
+          <article class="detail-card reveal"><img src="/assets/kutu-harf.jpg" alt="Kutu harf tabela" /><span>01</span><h3>Kutu Harf Tabela</h3><p><b>Malzemeler:</b> Pleksi, alüminyum, paslanmaz çelik ve LED aydınlatma seçenekleri.</p><p><b>Kullanım:</b> Cephe, giriş, vitrin ve iç mekân logo uygulamaları.</p><p><b>Fiyatı etkileyenler:</b> Harf ölçüsü, malzeme, aydınlatma, montaj yüksekliği ve adet.</p></article>
+          <article class="detail-card reveal"><img src="/assets/lightbox.jpg" alt="Lightbox tabela" /><span>02</span><h3>Lightbox Sistemleri</h3><p><b>Malzemeler:</b> Alüminyum kasa, germe vinil veya akrilik yüzey ve LED modül.</p><p><b>Kullanım:</b> Vitrin, cephe, koridor ve yönlendirme alanları.</p><p><b>Fiyatı etkileyenler:</b> Ölçü, tek ya da çift taraflı kullanım, baskı yüzeyi ve montaj koşulları.</p></article>
+          <article class="detail-card reveal"><img src="/assets/totem-tabela.jpg" alt="Totem tabela" /><span>03</span><h3>Totem Tabela</h3><p><b>Malzemeler:</b> Çelik konstrüksiyon, alüminyum kompozit, akrilik ve LED bileşenler.</p><p><b>Kullanım:</b> Yol, otopark, tesis girişi ve marka yönlendirme noktaları.</p><p><b>Fiyatı etkileyenler:</b> Yükseklik, temel ihtiyacı, yüz sayısı, aydınlatma ve erişim koşulları.</p></article>
+          <article class="detail-card reveal"><img src="/assets/cephe-giydirme.jpg" alt="Cephe tabelası" /><span>04</span><h3>Cephe Tabelaları</h3><p><b>Malzemeler:</b> Kompozit panel, kutu harf, folyo ve dış mekân baskı seçenekleri.</p><p><b>Kullanım:</b> Mağaza, ofis, iş merkezi ve bina cepheleri.</p><p><b>Fiyatı etkileyenler:</b> Cephe alanı, seçilen yüzey, uygulama yüksekliği ve montaj erişimi.</p></article>
+          <article class="detail-card reveal"><img src="/assets/kutu-harf.jpg" alt="Neon LED tabela" /><span>05</span><h3>Neon LED</h3><p><b>Malzemeler:</b> Esnek neon LED, akrilik zemin ve düşük voltajlı aydınlatma ekipmanı.</p><p><b>Kullanım:</b> Vitrin, kafe, ofis, etkinlik ve iç mekân vurgu alanları.</p><p><b>Fiyatı etkileyenler:</b> Yazı uzunluğu, renk sayısı, zemin biçimi ve elektrik altyapısı.</p></article>
+          <article class="detail-card reveal"><img src="/assets/totem-tabela.jpg" alt="Yönlendirme tabelaları" /><span>06</span><h3>Yönlendirme</h3><p><b>Malzemeler:</b> Alüminyum, akrilik, folyo ve modüler taşıyıcı sistemler.</p><p><b>Kullanım:</b> Kat, oda, otopark, giriş ve iç mekân bilgi akışı.</p><p><b>Fiyatı etkileyenler:</b> Adet, ölçü, ikonografi, montaj yüzeyi ve değiştirilebilir panel ihtiyacı.</p></article>
         </div></div></section>
       <section class="service-cta"><div class="shell"><p>UYGULAMA ALANINIZI PAYLAŞIN</p><h2>Ölçü ve fotoğrafla<br />hızlıca başlayalım.</h2><a class="outline-button light" href="/iletisim/">PROJE TALEBİ <span>→</span></a></div></section>`
   }),
@@ -123,59 +121,14 @@ const pages = {
     body: `${hero("Baskı & Giydirme", "Markanızı her yüzeye taşıyan çözümler.", "arac-giydirme.jpg", "Hizmetler")}
       <section class="inner-section service-detail"><div class="shell"><div class="inner-heading reveal"><div class="section-number"><b>02</b><span></span><em>BASKI HİZMETLERİ</em></div><h2>Renk, yüzey ve ölçek<br />aynı üretim planında.</h2><p>İç ve dış mekân uygulamalarında baskı malzemesini kullanım süresi, yüzey yapısı ve görüş mesafesine göre seçiyoruz.</p></div>
         <div class="detail-grid">
-          <article class="detail-card reveal"><img src="/assets/dijital-baski.jpg" alt="Dijital baskı makinesi" /><span>01</span><h3>Geniş Format Baskı</h3><p>Folyo, branda ve görsel yüzeyler için yüksek çözünürlüklü üretim.</p></article>
-          <article class="detail-card reveal"><img src="/assets/arac-giydirme.jpg" alt="Araç giydirme" /><span>02</span><h3>Araç Giydirme</h3><p>Tek araçtan kurumsal filoya kadar tasarım, baskı ve profesyonel uygulama.</p></article>
-          <article class="detail-card reveal"><img src="/assets/cephe-giydirme.jpg" alt="Cephe giydirme" /><span>03</span><h3>Cephe Giydirme</h3><p>Kompozit, vinil ve kampanya görselleriyle büyük ölçekli görünürlük.</p></article>
-          <article class="detail-card reveal"><img src="/assets/dijital-baski.jpg" alt="Cam folyo baskı" /><span>04</span><h3>Cam &amp; Folyo</h3><p>One-way vision, kumlama ve kesim folyo ile vitrin ve ofis uygulamaları.</p></article>
-          <article class="detail-card reveal"><img src="/assets/arac-giydirme.jpg" alt="Kurumsal filo uygulaması" /><span>05</span><h3>Kurumsal Filo</h3><p>Farklı araç tiplerinde tutarlı renk ve yerleşim standardı.</p></article>
-          <article class="detail-card reveal"><img src="/assets/cephe-giydirme.jpg" alt="Branda ve afiş" /><span>06</span><h3>Branda &amp; Afiş</h3><p>Kısa ve uzun dönem kampanyalar için ölçüye özel dış mekân baskıları.</p></article>
+          <article class="detail-card reveal"><img src="/assets/dijital-baski.jpg" alt="Dijital baskı" /><span>01</span><h3>Geniş Format Baskı</h3><p><b>Malzemeler:</b> Folyo, branda, one-way vision, poster kâğıdı ve laminasyon seçenekleri.</p><p><b>Kullanım:</b> Vitrin, kampanya alanı, yönlendirme ve dış mekân duyuruları.</p><p><b>Fiyatı etkileyenler:</b> Metraj, malzeme türü, baskı çözünürlüğü ve yüzey koruması.</p></article>
+          <article class="detail-card reveal"><img src="/assets/arac-giydirme.jpg" alt="Araç giydirme" /><span>02</span><h3>Araç Giydirme</h3><p><b>Malzemeler:</b> Dökme veya polimerik folyo, baskı, laminasyon ve kesim folyo.</p><p><b>Kullanım:</b> Binek araç, ticari araç, kamyonet ve kurumsal filo görünürlüğü.</p><p><b>Fiyatı etkileyenler:</b> Araç tipi, kaplama alanı, tasarım detayları ve söküm hazırlığı.</p></article>
+          <article class="detail-card reveal"><img src="/assets/cephe-giydirme.jpg" alt="Cephe giydirme" /><span>03</span><h3>Cephe Giydirme</h3><p><b>Malzemeler:</b> Vinil, branda, mesh, kompozit panel ve uygulama aparatları.</p><p><b>Kullanım:</b> Mağaza cephesi, bina yüzeyi, şantiye çevresi ve kampanya alanları.</p><p><b>Fiyatı etkileyenler:</b> Kaplama alanı, yüzey hazırlığı, yükseklik ve erişim ekipmanı.</p></article>
+          <article class="detail-card reveal"><img src="/assets/dijital-baski.jpg" alt="Cam folyo uygulaması" /><span>04</span><h3>Cam &amp; Folyo</h3><p><b>Malzemeler:</b> One-way vision, kumlama folyosu, şeffaf ve opak kesim folyo.</p><p><b>Kullanım:</b> Vitrin, ofis bölmesi, cam cephe ve iç mekân yönlendirmesi.</p><p><b>Fiyatı etkileyenler:</b> Cam alanı, desen, baskı seçimi ve uygulama erişimi.</p></article>
+          <article class="detail-card reveal"><img src="/assets/arac-giydirme.jpg" alt="Kurumsal araç uygulaması" /><span>05</span><h3>Kurumsal Araç Uygulaması</h3><p><b>Malzemeler:</b> Araç folyosu, reflektif seçenekler ve koruyucu laminasyon.</p><p><b>Kullanım:</b> Tekil araçlar ve marka görünürlüğü için araç filoları.</p><p><b>Fiyatı etkileyenler:</b> Araç sayısı, kaplama oranı, folyo sınıfı ve tasarım uyarlaması.</p></article>
+          <article class="detail-card reveal"><img src="/assets/cephe-giydirme.jpg" alt="Branda ve afiş baskısı" /><span>06</span><h3>Branda &amp; Afiş</h3><p><b>Malzemeler:</b> Branda, mesh, kuş gözü ve farklı askı sistemleri.</p><p><b>Kullanım:</b> Cephe, etkinlik, kampanya ve geçici duyuru alanları.</p><p><b>Fiyatı etkileyenler:</b> Ölçü, metraj, kenar işçiliği, askı çözümü ve montaj ihtiyacı.</p></article>
         </div></div></section>
       <section class="service-cta print-cta"><div class="shell"><p>MARKANIZI SAHAYA ÇIKARIN</p><h2>Doğru malzeme,<br />temiz uygulama.</h2><a class="outline-button light" href="/iletisim/">TEKLİF İSTEYİN <span>→</span></a></div></section>`
-  }),
-
-  "sertifikalar": layout({
-    title: "Sertifikalar",
-    description: "VRS Creative örnek sertifika ve kalite belgeleri sunumu.",
-    active: "certificates",
-    body: `${hero("Sertifikalar", "Örnek belge ve kalite sunumu.", "lightbox.jpg")}
-      <section class="inner-section certificate-section"><div class="shell"><div class="inner-heading reveal"><div class="section-number"><b>01</b><span></span><em>ÖRNEK BELGELER</em></div><h2>Kalite yaklaşımını<br />görünür kılan yapı.</h2><p>Bu prototipteki belge adları ve numaraları yalnızca tasarım örneğidir; VRS Creative’in gerçek sertifikalarını temsil etmez.</p><div class="demo-notice">PROTOTİP İÇERİĞİ — GERÇEK BELGE DEĞİLDİR</div></div>
-        <div class="certificate-grid">
-          <a class="certificate-card reveal" href="#sertifika-onizleme" data-certificate="Kalite Yönetim Sistemi"><span>ÖRNEK</span><b>ISO 9001</b><em>Kalite yönetim sistemi sunum kartı</em><i>İNCELE →</i></a>
-          <a class="certificate-card reveal" href="#sertifika-onizleme" data-certificate="Müşteri Memnuniyeti"><span>ÖRNEK</span><b>ISO 10002</b><em>Müşteri deneyimi süreç sunumu</em><i>İNCELE →</i></a>
-          <a class="certificate-card reveal" href="#sertifika-onizleme" data-certificate="İş Sağlığı ve Güvenliği"><span>ÖRNEK</span><b>ISO 45001</b><em>Saha güvenliği yaklaşım kartı</em><i>İNCELE →</i></a>
-          <a class="certificate-card reveal" href="#sertifika-onizleme" data-certificate="Çevre Yönetimi"><span>ÖRNEK</span><b>ISO 14001</b><em>Çevre yönetimi sunum kartı</em><i>İNCELE →</i></a>
-          <a class="certificate-card reveal" href="#sertifika-onizleme" data-certificate="Hizmet Yeterlilik"><span>ÖRNEK</span><b>HYB</b><em>Hizmet yeterlilik sunum kartı</em><i>İNCELE →</i></a>
-        </div>
-        <div class="certificate-timeline reveal"><h3>Örnek kalite yol haritası</h3><ol><li><b>01</b><span>Süreçlerin dokümante edilmesi</span></li><li><b>02</b><span>Üretim ve saha kontrol listeleri</span></li><li><b>03</b><span>Müşteri geri bildirim döngüsü</span></li></ol></div>
-      </div></section>
-      <div class="certificate-modal" id="sertifika-onizleme" role="dialog" aria-modal="true" aria-hidden="true"><div><a class="modal-close" href="#belgeler" data-modal-close aria-label="Pencereyi kapat">×</a><small>ÖRNEK BELGE ÖNİZLEMESİ</small><h2 data-modal-title>Kalite Yönetim Sistemi</h2><p>Bu kart prototip tasarımını göstermek içindir. Gerçek sertifika numarası, kapsamı ve doğrulama bilgileri VRS tarafından sağlandığında bu alan güncellenecektir.</p><a href="/iletisim/">BELGE BİLGİSİ TALEP ET →</a></div></div>`
-  }),
-
-  "makine-parkuru": layout({
-    title: "Makine Parkuru",
-    description: "VRS Creative örnek üretim ekipmanları ve makine parkuru sunumu.",
-    active: "machines",
-    body: `${hero("Makine Parkuru", "Tasarım, üretim ve uygulama tek çatı altında.", "dijital-baski.jpg")}
-      <section class="inner-section machine-section"><div class="shell"><div class="inner-heading reveal"><div class="section-number"><b>01</b><span></span><em>ÜRETİM ALTYAPISI</em></div><h2>Üretimi taşıyan<br />teknoloji.</h2><p>Aşağıdaki ekipmanlar prototip sayfa düzenini göstermek için hazırlanmış örnek içeriktir. Gerçek model ve kapasite bilgileri daha sonra eklenebilir.</p><div class="demo-notice">ÖRNEK MAKİNE LİSTESİ</div></div>
-        <div class="filter-bar" role="group" aria-label="Makine kategorileri"><button class="is-active" type="button" data-filter="all">TÜMÜ</button><button type="button" data-filter="signage">TABELA ÜRETİMİ</button><button type="button" data-filter="print">BASKI HATTI</button></div>
-        <div class="machine-grid">
-          <article class="machine-card reveal" data-category="signage"><span>01</span><div class="machine-icon">CNC</div><h3>CNC Router</h3><h4>Örnek hassas kesim hattı</h4><p>Kompozit, akrilik ve levha malzemelerde bilgisayar kontrollü şekillendirme.</p><ul><li>Hassas kesim</li><li>Seri üretim</li><li>Özel formlar</li></ul></article>
-          <article class="machine-card reveal" data-category="signage"><span>02</span><div class="machine-icon">LASER</div><h3>Lazer Kesim</h3><h4>Örnek akrilik işleme hattı</h4><p>Pleksi ve ince yüzeylerde detaylı kesim, markalama ve prototipleme.</p><ul><li>Detay kalitesi</li><li>Temiz kenar</li><li>Hızlı prototip</li></ul></article>
-          <article class="machine-card reveal" data-category="signage"><span>03</span><div class="machine-icon">BEND</div><h3>Kanal Harf Bükme</h3><h4>Örnek otomatik büküm</h4><p>Kutu harf yan bantlarının kontrollü açı ve ölçüde hazırlanması.</p><ul><li>Tekrarlanabilir ölçü</li><li>Hızlı üretim</li><li>Farklı profiller</li></ul></article>
-          <article class="machine-card reveal" data-category="print"><span>04</span><div class="machine-icon">UV</div><h3>UV Flatbed</h3><h4>Örnek doğrudan yüzeye baskı</h4><p>Rijit malzemelerde beyaz boya ve vernik seçenekli baskı sunumu.</p><ul><li>Canlı renk</li><li>Rijit malzeme</li><li>Özel katman</li></ul></article>
-          <article class="machine-card reveal" data-category="print"><span>05</span><div class="machine-icon">3.2M</div><h3>Geniş Format</h3><h4>Örnek eco-solvent hattı</h4><p>Branda ve folyo gibi rulo malzemelerde yüksek metrajlı üretim.</p><ul><li>Uzun metraj</li><li>Dış mekân</li><li>Renk yönetimi</li></ul></article>
-          <article class="machine-card reveal" data-category="print"><span>06</span><div class="machine-icon">LAM</div><h3>Laminasyon</h3><h4>Örnek yüzey koruma hattı</h4><p>Araç, cam ve folyo uygulamalarında baskı yüzeyinin korunması.</p><ul><li>Mat ve parlak</li><li>UV koruma</li><li>Kabarcıksız yüzey</li></ul></article>
-        </div></div></section>`
-  }),
-
-  "katalog": layout({
-    title: "Kataloğumuz",
-    description: "VRS Creative örnek proje kataloğu önizleme ve indirme sayfası.",
-    active: "catalog",
-    body: `${hero("Kataloğumuz", "Tabela, baskı ve uygulama çözümlerini tek dosyada inceleyin.", "cephe-giydirme.jpg")}
-      <section class="inner-section catalog-section"><div class="shell"><div class="catalog-heading reveal"><div><div class="section-number"><b>01</b><span></span><em>ÖRNEK KATALOG</em></div><h2>VRS Creative<br />Proje Kataloğu</h2><p>Altı sayfalık örnek sunumu tarayıcıda inceleyebilir veya cihazınıza indirebilirsiniz. İçerik prototip amaçlıdır.</p></div><a class="outline-button dark" href="/assets/vrs-creative-ornek-katalog.pdf" download>PDF İNDİR <span>↓</span></a></div>
-        <div class="catalog-viewer reveal"><iframe title="VRS Creative örnek proje kataloğu" src="/assets/vrs-creative-ornek-katalog.pdf#toolbar=1&navpanes=0&view=FitH"></iframe></div>
-      </div></section>`
   }),
 
   "iletisim": layout({
@@ -183,8 +136,8 @@ const pages = {
     description: "VRS Creative iletişim, konum ve proje talep formu.",
     active: "contact",
     body: `${hero("İletişim", "Projenizi birlikte netleştirelim.", "kutu-harf.jpg")}
-      <section class="contact-page"><div class="map-large"><iframe title="VRS Creative konumu" src="https://www.google.com/maps?q=40.9799827,29.1123926&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div class="contact-info reveal"><div class="section-number light"><b>01</b><span></span><em>BİZE ULAŞIN</em></div><h2>Projenizi<br />anlatın.</h2><address>Küçükbakkalköy, Mavideniz Sk. No:2<br />34750 Ataşehir / İstanbul</address><a href="tel:+905476060616">0547 606 06 16</a><a href="mailto:info@vrscreative.com">info@vrscreative.com</a><a href="https://instagram.com/vrscreativeco/" target="_blank" rel="noreferrer">@vrscreativeco</a></div></section>
-      <section class="inner-section form-section"><div class="shell form-layout"><div class="form-heading reveal"><div class="section-number"><b>02</b><span></span><em>PROJE FORMU</em></div><h2>Kısa bir mesaj<br />yeterli.</h2><p>Form gönderildiğinde bilgileriniz WhatsApp mesajı olarak hazırlanır; gönderme kararı size aittir.</p></div><form class="contact-form reveal" data-contact-form><label>Adınız<input name="name" required autocomplete="name" /></label><label>E-posta adresiniz<input name="email" type="email" required autocomplete="email" /></label><label>Konu<select name="subject"><option>Tabela Sistemleri</option><option>Baskı &amp; Giydirme</option><option>Kurumsal Uygulama</option><option>Diğer</option></select></label><label>Mesajınız<textarea name="message" rows="5" required></textarea></label><button class="outline-button dark" type="submit">WHATSAPP’TA HAZIRLA <span>→</span></button></form></div></section>`
+      <section class="contact-page"><div class="map-large"><iframe title="VRS Creative konumu" src="https://www.google.com/maps?q=40.9799827,29.1123926&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div class="contact-info reveal"><div class="section-number light"><b>01</b><span></span><em>BİZE ULAŞIN</em></div><h2>Bizi ziyaret edin.</h2><address>Küçükbakkalköy, Mavideniz Sk. No:2<br />34750 Ataşehir / İstanbul</address><a href="tel:+905476060616">0547 606 06 16</a><a href="mailto:info@vrscreative.com">info@vrscreative.com</a><p class="working-hours light-hours"><strong>Çalışma saatleri</strong><br />Pazartesi–Cuma: 09.00–18.00<br />Cumartesi: 10.00–13.00<br />Pazar: Kapalı</p><a href="https://instagram.com/vrscreativeco/" target="_blank" rel="noreferrer">@vrscreativeco</a></div></section>
+      <section class="inner-section form-section"><div class="shell form-layout"><div class="form-heading reveal"><div class="section-number"><b>02</b><span></span><em>PROJE FORMU</em></div><h2>Kısa bir mesaj<br />yeterli.</h2><p>Form, bilgilerinizi WhatsApp’ta hazır bir mesaj olarak açar; mesajı gönderme kararı size aittir.</p></div><form class="contact-form reveal" data-contact-form><label>Adınız<input name="name" required autocomplete="name" /></label><label>E-posta adresiniz <small>(isteğe bağlı)</small><input name="email" type="email" autocomplete="email" /></label><label>Konu<select name="subject"><option>Tabela Sistemleri</option><option>Baskı &amp; Giydirme</option><option>Kurumsal Uygulama</option><option>Diğer</option></select></label><label>Mesajınız<textarea name="message" rows="5" required></textarea></label><p class="form-note">Bu form doğrudan mesaj göndermez; WhatsApp’ta mesaj taslağı hazırlar.</p><button class="outline-button dark" type="submit">WHATSAPP’TA HAZIRLA <span>→</span></button></form></div></section>`
   }),
 };
 

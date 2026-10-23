@@ -20,23 +20,12 @@ Ardından `http://127.0.0.1:49322/` adresini açın.
 node tools/build_pages.mjs
 ```
 
-Örnek PDF kataloğu yeniden oluşturmak için Python ve ReportLab gerekir:
-
-```bash
-python3 tools/build_catalog.py
-```
-
-Üretilen katalog `output/pdf/` altında tutulur; web sitesinde kullanılan kopyası `dist/assets/` içindedir.
-
 ## Proje yapısı
 
 - `dist/`: doğrudan yayınlanabilir web sitesi
-- `dist/assets/`: logo, hizmet görselleri ve örnek katalog
-- `tools/`: sayfa ve katalog üretim araçları
-- `output/pdf/`: katalog çıktısı
+- `dist/assets/`: logo ve hizmet tanıtım görselleri
+- `tools/`: sayfa üretim aracı
 
 ## Yayın
 
-Canlı önizleme: [vrs.187.77.86.105.sslip.io](https://vrs.187.77.86.105.sslip.io/)
-
-> Sertifika, makine parkuru ve katalog içerikleri prototip amaçlı örnek içeriklerdir; gerçek belge veya taahhüt niteliği taşımaz.
+Geçici canlı adres: [vrs.187.77.86.105.sslip.io](https://vrs.187.77.86.105.sslip.io/)

@@ -30,6 +30,10 @@ menuToggle?.addEventListener('click', () => {
 document.querySelectorAll('.nav-parent').forEach((button) => {
   button.addEventListener('click', (event) => {
     event.preventDefault();
+    if (button.hasAttribute('data-services-link') && window.matchMedia('(min-width: 821px)').matches) {
+      window.location.href = '/#hizmetler';
+      return;
+    }
     const item = button.closest('.has-dropdown');
     const shouldOpen = !item?.classList.contains('is-open');
 
@@ -63,9 +67,10 @@ backToTop?.addEventListener('click', () => {
 });
 
 const slides = [...document.querySelectorAll('.hero-slide')];
-const dots = [...document.querySelectorAll('.hero-dot')];
-const previousButton = document.querySelector('.hero-arrow.prev');
-const nextButton = document.querySelector('.hero-arrow.next');
+const heroFrames = [...document.querySelectorAll('.film-frame')];
+const previousButton = document.querySelector('[data-prev]');
+const nextButton = document.querySelector('[data-next]');
+const currentSlide = document.querySelector('[data-current]');
 let activeSlide = 0;
 let heroTimer;
 
@@ -73,13 +78,13 @@ const showSlide = (index) => {
   if (!slides.length) return;
   activeSlide = (index + slides.length) % slides.length;
   slides.forEach((slide, slideIndex) => {
-    slide.classList.toggle('is-active', slideIndex === activeSlide);
+    slide.classList.toggle('is-current', slideIndex === activeSlide);
     slide.setAttribute('aria-hidden', String(slideIndex !== activeSlide));
   });
-  dots.forEach((dot, dotIndex) => {
-    dot.classList.toggle('is-active', dotIndex === activeSlide);
-    dot.setAttribute('aria-current', dotIndex === activeSlide ? 'true' : 'false');
+  heroFrames.forEach((frame, frameIndex) => {
+    frame.classList.toggle('is-current', frameIndex === activeSlide);
   });
+  if (currentSlide) currentSlide.textContent = String(activeSlide + 1);
 };
 
 const restartHero = () => {
@@ -96,12 +101,6 @@ if (slides.length) {
   nextButton?.addEventListener('click', () => {
     showSlide(activeSlide + 1);
     restartHero();
-  });
-  dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      showSlide(index);
-      restartHero();
-    });
   });
   showSlide(0);
   restartHero();
@@ -143,42 +142,48 @@ document.querySelectorAll('[data-count]').forEach((counter) => counterObserver.o
 
 const processData = [
   {
-    title: 'Keşif ve ihtiyaç analizi',
-    copy: 'Ölçü, görüş mesafesi, uygulama zemini ve ışık koşullarını yerinde değerlendiriyoruz.',
+    kicker: 'İHTİYACI DOĞRU ANLAMAK',
+    title: 'Keşif ve ölçü',
+    copy: 'Uygulama alanını, görünürlük koşullarını ve teknik gereksinimleri değerlendirerek doğru başlangıcı yaparız.',
     image: 'assets/kutu-harf.jpg'
   },
   {
-    title: 'Tasarım ve prova',
-    copy: 'Renk, ölçü ve malzeme seçeneklerini markanızın görünürlüğüne göre netleştiriyoruz.',
+    kicker: 'GÖRSEL VE TEKNİK KARARLAR',
+    title: 'Tasarım ve üretim',
+    copy: 'Renk, ölçü ve malzeme seçeneklerini uygulama alanına göre netleştirir; üretim planını birlikte oluştururuz.',
     image: 'assets/dijital-baski.jpg'
   },
   {
-    title: 'Üretim ve kalite kontrol',
-    copy: 'Kesimden baskıya kadar her adımı kendi üretim akışımızda takip ediyoruz.',
-    image: 'assets/cephe-giydirme.jpg'
-  },
-  {
-    title: 'Montaj ve teslim',
-    copy: 'Planlanan zamanda güvenli montajı tamamlıyor, uygulamayı kullanıma hazır teslim ediyoruz.',
+    kicker: 'SAHADA UYGULAMA',
+    title: 'Uygulama ve teslim',
+    copy: 'Üretim koordinasyonu, saha planı ve montaj adımlarını yöneterek uygulamayı planlı biçimde tamamlarız.',
     image: 'assets/totem-tabela.jpg'
   }
 ];
 
+const processKicker = document.querySelector('[data-process-kicker]');
 const processTitle = document.querySelector('[data-process-title]');
 const processCopy = document.querySelector('[data-process-copy]');
 const processImage = document.querySelector('[data-process-image]');
+const processStage = document.querySelector('.process-stage');
 
 document.querySelectorAll('[data-process]').forEach((tab) => {
   tab.addEventListener('click', () => {
     const index = Number(tab.dataset.process);
     const data = processData[index];
     if (!data || !processTitle || !processCopy || !processImage) return;
-    document.querySelectorAll('[data-process]').forEach((item) => item.classList.remove('is-active'));
-    tab.classList.add('is-active');
+    document.querySelectorAll('[data-process]').forEach((item) => {
+      item.classList.toggle('is-active', item === tab);
+      item.setAttribute('aria-selected', String(item === tab));
+    });
+    processStage?.classList.add('is-changing');
+    if (processKicker) processKicker.textContent = data.kicker;
     processTitle.textContent = data.title;
     processCopy.textContent = data.copy;
     processImage.src = data.image;
     processImage.alt = data.title;
+    processImage.onload = () => processStage?.classList.remove('is-changing');
+    window.setTimeout(() => processStage?.classList.remove('is-changing'), 450);
   });
 });
 
@@ -191,50 +196,10 @@ document.querySelectorAll('.faq-list details').forEach((item) => {
   });
 });
 
-const certificateModal = document.querySelector('.certificate-modal');
-const certificateModalTitle = certificateModal?.querySelector('[data-modal-title]');
-const certificateModalText = certificateModal?.querySelector('p');
-
-const closeCertificateModal = () => {
-  certificateModal?.classList.remove('is-open');
-  certificateModal?.setAttribute('aria-hidden', 'true');
-  body.classList.remove('modal-open');
-};
-
-document.querySelectorAll('[data-certificate]').forEach((card) => {
-  card.addEventListener('click', () => {
-    if (!certificateModal) return;
-    if (certificateModalTitle) certificateModalTitle.textContent = card.dataset.certificate || 'Örnek sertifika';
-    if (certificateModalText) certificateModalText.textContent = card.dataset.description || 'Bu kart, prototip sunum için oluşturulmuş temsili bir belgedir.';
-    certificateModal.classList.add('is-open');
-    certificateModal.setAttribute('aria-hidden', 'false');
-    body.classList.add('modal-open');
-  });
-});
-
-certificateModal?.querySelectorAll('[data-modal-close]').forEach((button) => {
-  button.addEventListener('click', closeCertificateModal);
-});
-
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
-    closeCertificateModal();
     closeMenu();
   }
-});
-
-const filterButtons = document.querySelectorAll('[data-filter]');
-const machineCards = document.querySelectorAll('[data-category]');
-
-filterButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    const selected = button.dataset.filter;
-    filterButtons.forEach((item) => item.classList.toggle('is-active', item === button));
-    machineCards.forEach((card) => {
-      const visible = selected === 'all' || card.dataset.category === selected;
-      card.hidden = !visible;
-    });
-  });
 });
 
 const contactForm = document.querySelector('[data-contact-form]');
