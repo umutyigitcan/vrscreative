@@ -645,18 +645,6 @@ body.is-ready .page-loader {
   object-fit: cover;
 }
 
-.pattern-block {
-  position: absolute;
-  z-index: 1;
-  right: -8%;
-  bottom: 0;
-  width: 62%;
-  height: 70%;
-  background-color: var(--accent);
-  background-image: radial-gradient(rgba(255, 255, 255, 0.32) 1.2px, transparent 1.2px);
-  background-size: 16px 16px;
-}
-
 .image-tag {
   position: absolute;
   z-index: 3;
