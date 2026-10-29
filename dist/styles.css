@@ -323,6 +323,11 @@ body.is-ready .page-loader {
   transform: scale(1);
 }
 
+.hero.is-video-only .hero-controls,
+.hero.is-video-only .hero-count {
+  display: none;
+}
+
 .frame-one {
   background-image: url("assets/img_3200.webp");
   background-position: center;

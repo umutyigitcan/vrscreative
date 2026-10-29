@@ -71,6 +71,8 @@ backToTop?.addEventListener('click', () => {
 const slides = [...document.querySelectorAll('.hero-slide')];
 const heroFrames = [...document.querySelectorAll('.film-frame')];
 const heroVideo = document.querySelector('[data-hero-video]');
+const hero = document.querySelector('.hero');
+const videoOnlyHero = Boolean(heroVideo);
 const previousButton = document.querySelector('[data-prev]');
 const nextButton = document.querySelector('[data-next]');
 const currentSlide = document.querySelector('[data-current]');
@@ -79,15 +81,17 @@ let heroTimer;
 
 const showSlide = (index) => {
   if (!slides.length) return;
-  activeSlide = (index + slides.length) % slides.length;
+  activeSlide = videoOnlyHero ? 0 : (index + slides.length) % slides.length;
   slides.forEach((slide, slideIndex) => {
     slide.classList.toggle('is-current', slideIndex === activeSlide);
     slide.setAttribute('aria-hidden', String(slideIndex !== activeSlide));
   });
-  const showVideo = activeSlide === 1;
-    heroFrames.forEach((frame, frameIndex) => {
-      frame.classList.toggle('is-current', frameIndex === activeSlide && !showVideo);
-    });
+  const showVideo = videoOnlyHero || activeSlide === 1;
+  heroFrames.forEach((frame, frameIndex) => {
+    frame.classList.toggle('is-current', frameIndex === activeSlide && !showVideo);
+  });
+  hero?.classList.toggle('is-video-only', videoOnlyHero);
+  document.body.classList.remove('is-video-scene');
   heroVideo?.classList.toggle('is-current', showVideo);
   if (showVideo) {
     heroVideo?.play().catch(() => {});
@@ -104,16 +108,18 @@ const restartHero = () => {
 };
 
 if (slides.length) {
-  previousButton?.addEventListener('click', () => {
-    showSlide(activeSlide - 1);
-    restartHero();
-  });
-  nextButton?.addEventListener('click', () => {
-    showSlide(activeSlide + 1);
-    restartHero();
-  });
+  if (!videoOnlyHero) {
+    previousButton?.addEventListener('click', () => {
+      showSlide(activeSlide - 1);
+      restartHero();
+    });
+    nextButton?.addEventListener('click', () => {
+      showSlide(activeSlide + 1);
+      restartHero();
+    });
+  }
   showSlide(0);
-  restartHero();
+  if (!videoOnlyHero) restartHero();
 }
 
 const revealObserver = new IntersectionObserver((entries, observer) => {
