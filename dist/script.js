@@ -70,6 +70,7 @@ backToTop?.addEventListener('click', () => {
 
 const slides = [...document.querySelectorAll('.hero-slide')];
 const heroFrames = [...document.querySelectorAll('.film-frame')];
+const heroVideo = document.querySelector('[data-hero-video]');
 const previousButton = document.querySelector('[data-prev]');
 const nextButton = document.querySelector('[data-next]');
 const currentSlide = document.querySelector('[data-current]');
@@ -83,9 +84,16 @@ const showSlide = (index) => {
     slide.classList.toggle('is-current', slideIndex === activeSlide);
     slide.setAttribute('aria-hidden', String(slideIndex !== activeSlide));
   });
-  heroFrames.forEach((frame, frameIndex) => {
-    frame.classList.toggle('is-current', frameIndex === activeSlide);
-  });
+  const showVideo = activeSlide === 1;
+    heroFrames.forEach((frame, frameIndex) => {
+      frame.classList.toggle('is-current', frameIndex === activeSlide && !showVideo);
+    });
+  heroVideo?.classList.toggle('is-current', showVideo);
+  if (showVideo) {
+    heroVideo?.play().catch(() => {});
+  } else {
+    heroVideo?.pause();
+  }
   if (currentSlide) currentSlide.textContent = String(activeSlide + 1);
 };
 

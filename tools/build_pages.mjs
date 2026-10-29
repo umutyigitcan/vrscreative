@@ -41,7 +41,7 @@ const footer = `
     <div class="shell footer-bottom"><span>© 2026 VRS Creative</span><span>Tasarım • Üretim • Uygulama</span></div>
   </footer>
   <button class="back-top" type="button" aria-label="Sayfanın başına dön">↑</button>
-  <script src="/script.js?v=20261029-1"></script>`;
+  <script src="/script.js?v=20261030-1"></script>`;
 
 const hero = (title, subtitle, image, parent = "Başlangıç") => `
   <section class="page-hero" style="--page-image: url('/assets/${image}')">
