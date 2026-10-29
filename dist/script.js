@@ -5,7 +5,7 @@ const mainNav = document.querySelector('.main-nav');
 const backToTop = document.querySelector('.back-to-top');
 
 window.addEventListener('load', () => {
-  window.setTimeout(() => body.classList.add('is-ready'), 1500);
+  window.setTimeout(() => body.classList.add('is-ready'), 1000);
 });
 
 const syncHeader = () => {
@@ -147,19 +147,19 @@ const processData = [
     kicker: 'İHTİYACI DOĞRU ANLAMAK',
     title: 'Keşif ve ölçü',
     copy: 'Uygulama alanını, görünürlük koşullarını ve teknik gereksinimleri değerlendirerek doğru başlangıcı yaparız.',
-    image: 'assets/kutu-harf.jpg'
+    image: 'assets/img_3206.webp'
   },
   {
     kicker: 'GÖRSEL VE TEKNİK KARARLAR',
     title: 'Tasarım ve üretim',
     copy: 'Renk, ölçü ve malzeme seçeneklerini uygulama alanına göre netleştirir; üretim planını birlikte oluştururuz.',
-    image: 'assets/dijital-baski.jpg'
+    image: 'assets/img_3207.webp'
   },
   {
     kicker: 'SAHADA UYGULAMA',
     title: 'Uygulama ve teslim',
     copy: 'Üretim koordinasyonu, saha planı ve montaj adımlarını yöneterek uygulamayı planlı biçimde tamamlarız.',
-    image: 'assets/totem-tabela.jpg'
+    image: 'assets/img_3208.webp'
   }
 ];
 

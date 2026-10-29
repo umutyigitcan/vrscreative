@@ -308,17 +308,19 @@ body.is-ready .page-loader {
 }
 
 .frame-one {
-  background-image: url("assets/kutu-harf.jpg");
+  background-image: url("assets/img_3200.webp");
+  background-position: center;
 }
 
 .frame-two {
-  background-image: url("assets/cephe-giydirme.jpg");
+  background-image: url("assets/img_3201.webp");
+  background-position: center;
   animation-delay: 6s;
 }
 
 .frame-three {
-  background-image: url("assets/totem-tabela.jpg");
-  background-position: center 42%;
+  background-image: url("assets/img_3202.webp");
+  background-position: center;
   animation-delay: 12s;
 }
 
@@ -852,6 +854,7 @@ body.is-ready .page-loader {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 48%;
 }
 
 .feature-copy {
@@ -1701,6 +1704,14 @@ body.is-ready .page-loader {
     margin-bottom: 30px;
   }
 
+  /* Görselleri telefonda kırpmadan göster; metin üstteki sakin alanda kalır. */
+  .film-frame {
+    background-color: #12191d;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center bottom;
+  }
+
   .outline-button {
     min-height: 54px;
     padding: 0 23px;
@@ -2375,6 +2386,12 @@ body.is-ready .page-loader {
   object-fit: cover;
 }
 
+/* Dikey cephe brandasında çerçeve ve markalama tamamen görünür kalsın. */
+.detail-card img[src$="img_3215.webp"] {
+  object-fit: contain;
+  background: #1c1f21;
+}
+
 .detail-card > span {
   position: absolute;
   top: 259px;
@@ -2915,21 +2932,18 @@ body.is-ready .page-loader {
 }
 
 .frame-one {
-  background-image:
-    radial-gradient(circle at 78% 32%, rgba(77, 187, 220, 0.4), transparent 32%),
-    linear-gradient(124deg, #101417 0%, #1b353e 48%, #164e60 100%);
+  background-image: url("assets/img_3200.webp");
+  background-position: center;
 }
 
 .frame-two {
-  background-image:
-    radial-gradient(ellipse at 72% 64%, rgba(8, 173, 232, 0.34), transparent 35%),
-    linear-gradient(145deg, #151719 0%, #262b2e 46%, #153746 100%);
+  background-image: url("assets/img_3201.webp");
+  background-position: center;
 }
 
 .frame-three {
-  background-image:
-    radial-gradient(circle at 78% 28%, rgba(96, 208, 240, 0.3), transparent 27%),
-    linear-gradient(118deg, #0e1518 0%, #1b2d35 53%, #155a70 100%);
+  background-image: url("assets/img_3202.webp");
+  background-position: center;
 }
 
 .intro-visual img {
