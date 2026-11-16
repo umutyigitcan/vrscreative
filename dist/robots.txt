@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vrscreative.com/sitemap.xml
+Sitemap: https://vrskreatif.com/sitemap.xml
